@@ -1,102 +1,94 @@
 <script>
     import { onMount } from 'svelte';
+    import Navbar from "./Navbar.svelte";
 
     onMount(() => {
-        // Add your custom logic here
+        // Add any necessary JavaScript code here
     });
+
+    let email = '';
+
+    function handleEmailSubmit() {
+        // Add logic to handle the email submission here
+        console.log('Email submitted:', email);
+        // You can clear the email input field here if needed
+        email = '';
+    }
 </script>
 
 <style>
-    /* Add your custom styles here */
-    .glass {
-        background: rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(10px);
+    .bg-gradient {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55%;
+        height: 100%;
+        /*background: linear-gradient(135deg, rgba(66, 153, 225, 0.8), rgba(129, 209, 235, 0.8));*/
+        background: linear-gradient(135deg, hsla(272, 82%, 50%, 1) 0%, hsl(255, 98%, 60%) 100%);
+        transform: skewX(-20deg);
+        translate: 185px;
+        box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.6);
+        z-index: -1;
+    }
+
+    .text-gradient {
+        display: inline-block;
+        font-family: helvetica, arial, sans-serif;
+        font-weight: bold;
+        background: linear-gradient(290deg, WHITE 79.25%, rgb(17 24 39) 20.75%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    }
+
+    .button-gradient {
+        background: linear-gradient(290deg, #ff4444 90%,  WHITE 10%);
+        outline: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+
+    }
+
+    .input-gradient {
+        background: linear-gradient(110deg, white 99%, #ff4444 1%);
+        outline: none;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+
+    .vignette {
+        box-shadow: 0 0 100px rgba(0,0,0,0.9) inset;
     }
 </style>
 
-<main class="bg-gradient-to-b from-purple-500 to-blue-500 min-h-screen">
-    <header class="bg-transparent py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-white text-4xl font-bold">Engage</h1>
-            <nav>
-                <ul class="flex space-x-10">
-                    <li><a href="#" class="text-white hover:text-blue-200">Home</a></li>
-                    <li><a href="#" class="text-white hover:text-blue-200">Features</a></li>
-                    <li><a href="#" class="text-white hover:text-blue-200">Pricing</a></li>
-                    <li><a href="#" class="text-white hover:text-blue-200">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<Navbar></Navbar>
 
-    <section class="py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="">
-                    <h1 class="text-7xl font-bold mb-4 text-white">Revolutionize your finances</h1>
-                    <p class="text-xl text-gray-200 mb-4">Engage leverages cutting-edge AI technology to provide personalized financial insights and recommendations.</p>
-                </div>
-                <div>
-                    <img src="assets/financial-illustration.jpg" alt="Financial Illustration" class="w-full h-auto">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-gray-100 py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-gray-800">Powerful Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass p-8 rounded-lg transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Real-time spending analysis</h3>
-                    <p class="text-gray-600 mb-4">Track your expenses in real-time and gain valuable insights into your spending habits.</p>
-                </div>
-                <div class="glass p-8 rounded-lg transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Smart budgeting and savings goals</h3>
-                    <p class="text-gray-600 mb-4">Set personalized budgets and savings goals to achieve your financial objectives.</p>
-                </div>
-                <div class="glass p-8 rounded-lg transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Investment portfolio optimization</h3>
-                    <p class="text-gray-600 mb-4">Optimize your investment portfolio based on AI-driven recommendations and market trends.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-gray-100 py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Our Mission</h2>
-            <div class="flex items-center justify-center">
-                <div class="w-3/4">
-                    <div class="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between bg-white p-8 rounded-lg shadow-lg">
-                        <div class="md:w-1/2 mb-4 md:mb-0">
-                            <p class="text-lg text-gray-800">At Engage, we are on a mission to revolutionize the way people manage their finances. We believe that everyone deserves access to intelligent financial solutions that simplify and enhance their financial lives.</p>
+<main class="relative  min-h-screen flex items-center justify-center vignette">
+    <div class="bg-gradient"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-8xl">
+                Welcome to <span class="text-gradient">E</span><span class="text-white">ngage</span>
+            </h1>
+            <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                The AI-powered personal finance manager that <span class="text-white"> saves you money and time. </span>
+            </p>
+            <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+                <div class="rounded-md">
+                    <form on:submit|preventDefault={handleEmailSubmit}>
+                        <div class="flex items-center shadow-2xl">
+                            <input type="email" required class="z-10 rounded-l-md input-gradient p-4 text-lg text-gray-900 placeholder-gray-500" placeholder="Enter your email address" bind:value={email} />
+                            <button type="submit" class="z-10 button-gradient inline-flex font-bold items-center text-xl px-[40px] py-[16px] rounded-r-md text-white">
+                                Notify Me
+                            </button>
                         </div>
-                        <div class="md:w-1/2">
-                            <p class="text-lg text-gray-800">Through cutting-edge AI technology, we empower individuals and businesses to make informed financial decisions, achieve their goals, and secure their financial future.</p>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
-
-
-
-
-    <section class="bg-transparent py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-white text-3xl font-bold mb-4 flex items-center justify-center">Join the financial revolution today</h2>
-            <p class="text-white mb-4 flex justify-center">Sign up now and experience the power of AI-driven financial management.</p>
-            <div class="flex justify-center items-center text-center ">
-                <a href="#" class="bg-white text-blue-500 hover:bg-blue-100 py-3 px-6 rounded-full font-bold">Get Started</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-transparent py-4">
-        <div class="container mx-auto px-4">
-            <p class="text-white text-center">© 2023 Engage. All rights reserved.</p>
-        </div>
-    </footer>
+    </div>
 </main>
